@@ -119,3 +119,34 @@ INFO UPDATE 1
 INFO INSERT 0 0
 {"currently_syncing": null, "bookmarks": {"gogs-repository": {"initial_full_table_complete": true}}}
 ```
+
+## for gitlab demo
+
+* create access_token from gitlab app
+
+* create gitlab virtualenv
+
+```code
+virtualenv  gitlab  
+source ./gitlab/bin/activate
+pip install tap-gitlab
+```
+
+* add gitlab tap config
+
+```code
+{
+ "api_url": "https://gitlab.com/api/v4",
+ "private_token": "<token>",
+ "groups": "<yougroup>",
+ "projects": "<you project>",
+ "start_date":"2010-01-01T00:00:00Z"
+}
+
+```
+
+* running
+
+```code
+./gitlab/bin/tap-gitlab -c gitlab.json | ./postgres/bin/target-postgres -c target.json
+```
