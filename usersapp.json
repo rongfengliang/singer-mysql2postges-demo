@@ -1,0 +1,58 @@
+{
+  "streams": [
+    {
+      "table_name": "loginusers",
+      "stream": "loginusers",
+      "metadata": [
+        {
+          "breadcrumb": [],
+          "metadata": {
+            "database-name": "usersapp",
+            "row-count": 3,
+            "selected": true,
+            "replication-method": "FULL_TABLE",
+            "custom-select-clause": "_id,name,age"
+          }
+        }
+      ],
+      "tap_stream_id": "usersapp-loginusers",
+      "schema": {
+        "type": "object",
+        "properties": {
+            "name": {
+            "inclusion": "available",
+            "maxLength": 255,
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "age": {
+            "inclusion": "available",
+            "maxLength": 255,
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "type": {
+            "inclusion": "available",
+            "maxLength": 255,
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "_id": {
+            "inclusion": "available",
+            "maxLength": 255,
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

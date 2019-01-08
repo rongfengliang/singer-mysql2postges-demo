@@ -2,3 +2,4 @@ postgres/**
 mysql/**
 gitlab/**
 gitlab.json
+mongodb/**

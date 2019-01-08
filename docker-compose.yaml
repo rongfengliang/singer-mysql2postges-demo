@@ -5,6 +5,10 @@ services:
     ports:
       - "10022:22"
       - "10080:3000"
+  mongodb:
+    image: mongo:3.4
+    ports:
+    - "27017:27017"
   mysql:
     image: mysql:5.7.16
     ports:
