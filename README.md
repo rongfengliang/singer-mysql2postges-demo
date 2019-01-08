@@ -150,3 +150,76 @@ pip install tap-gitlab
 ```code
 ./gitlab/bin/tap-gitlab -c gitlab.json | ./postgres/bin/target-postgres -c target.json
 ```
+
+## for mongodb
+
+* config propeerties
+
+```diff
+{
+  "streams": [
+    {
+      "table_name": "loginusers",
+      "stream": "loginusers",
+      "metadata": [
+        {
+          "breadcrumb": [],
+          "metadata": {
+            "database-name": "usersapp",
+            "row-count": 3,
++ "selected": true,
++ "replication-method": "FULL_TABLE",
++ "custom-select-clause": "_id,name,age"
+          }
+        }
+      ],
+      "tap_stream_id": "usersapp-loginusers",
+      "schema": {
+        "type": "object",
++ "properties": {
++ "name": {
++ "inclusion": "available",
++ "maxLength": 255,
++ "type": [
++ "null",
++ "string"
++ ]
++ },
++ "age": {
++ "inclusion": "available",
++ "maxLength": 255,
++ "type": [
++ "null",
++ "number"
++ ]
++ },
++ "type": {
++ "inclusion": "available",
++ "maxLength": 255,
++ "type": [
++ "null",
++ "string"
++ ]
++ },
++ "_id": {
++ "inclusion": "available",
++ "maxLength": 255,
++ "type": [
++ "null",
++ "string"
++ ]
++ }
++ }
++ }
++ }
++ ]
+}
+
+```
+
+* run
+
+```code
+./mongodb/bin/tap-mongodb -c mongo.json --properties usersapp.json | ./postgres/bin/target-po
+stgres -c target.json
+```
