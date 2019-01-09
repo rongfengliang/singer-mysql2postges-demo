@@ -515,6 +515,8 @@
             "selected-by-default": false,
             "database-name": "gogs",
             "row-count": 0,
+            "selected": true,
+            "replication-method": "FULL_TABLE",
             "is-view": false,
             "table-key-properties": [
               "id"
