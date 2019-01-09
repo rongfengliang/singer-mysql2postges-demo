@@ -4,3 +4,5 @@ gitlab/**
 gitlab.json
 mongodb/**
 csv/**
+github.json
+github/**
